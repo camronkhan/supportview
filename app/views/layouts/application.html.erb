@@ -6,23 +6,28 @@
 		<%= stylesheet_link_tag    'application', media: 'all' %>
 		<%= javascript_include_tag 'application' %>
 	</head>
-	<body class="container">
+	<body>
+		
+		<%= render partial: 'layouts/nav' %>
+		
+		<main class="container-fluid">
+			<!-- Flash: Notice -->
+			<% if notice.present? %>
+				<aside class="alert alert-info">
+					<%= notice %>
+				</aside>
+			<% end %>
 
-		<!-- Flash: Notice -->
-		<% if notice.present? %>
-			<aside class="alert alert-info">
-				<%= notice %>
-			</aside>
-		<% end %>
+			<!-- Flash: Alert -->
+			<% if alert.present? %>
+				<aside class="alert alert-danger">
+					<%= alert %>
+				</aside>
+			<% end %>
+		
+			<%= yield %>
+		</main>
 
-		<!-- Flash: Alert -->
-		<% if alert.present? %>
-			<aside class="alert alert-danger">
-				<%= alert %>
-			</aside>
-		<% end %>
-
-		<%= yield %>
-
+		<%= render partial: 'layouts/footer' %>
 	</body>
 </html>
