@@ -6,7 +6,11 @@ class ProductsController < ApplicationController
 			product_search_term = ProductSearchTerm.new(@keywords)
 			@products = Product.where(product_search_term.where_clause, product_search_term.where_args).order(product_search_term.order).limit(10)
 		else
-			@products = Product.all.limit(10)
+			@products = []
+		end
+		respond_to do |format|
+			format.html {}
+			format.json { render json: @products }
 		end
 	end
 end
