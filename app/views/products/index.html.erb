@@ -16,27 +16,28 @@
 
 
 <section class="search-results">
-	<header>
-		<h1 class="h3">Results</h1>
-	</header>
-	<table class="table table-striped">
-		<thead>
-			<tr>
-				<th></th>
-				<th>Product Name</th>
-				<th>Company</th>
-				<th>Source</th>
-			</tr>
-		</thead>
-		<tbody>
-			<% @products.each do |product| %>
-				<tr>
-					<td><%= image_tag product.image_url, size: "100x100", class: "img-responsive" %></td>
-					<td><%= product.name %></td>
-					<td><%= product.company.name %></td>
-					<td><%= product.source.location %></td>
-				</tr>
-			<% end %>
-		</tbody>
-	</table>
+	<div class="row">
+		<div class="col-sm-4 search-results pre-scrollable" style="height:100vh;">
+			<h1>Results</h1>
+			<ol class="list-group">
+				<% @products.each do |product| %>
+					<li class="list-group-item media">
+						<div class="row">
+							<div class="col-xs-4">
+								<%= image_tag product.image_url, alt: product.name, class: "img-responsive" %>
+							</div>
+							<div class="col-xs-8">
+								<h2><%= product.name %></h2>
+								<h3><%= product.company.name %></h3>
+								<h4><%= product.source.location %></h4>
+							</div>
+						</div>
+					</li>
+				<% end %>
+			</ol>
+		</div>
+		<div class="col-sm-8 item-information">
+			h1
+		</div>
+	</div>
 </section>
