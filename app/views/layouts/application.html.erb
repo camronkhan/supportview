@@ -7,8 +7,22 @@
 		<%= javascript_include_tag 'application' %>
 	</head>
 	<body class="container">
-		<p class="notice"><%= notice %></p>
-		<p class="alert"><%= alert %></p>
+
+		<!-- Flash: Notice -->
+		<% if notice.present? %>
+			<aside class="alert alert-info">
+				<%= notice %>
+			</aside>
+		<% end %>
+
+		<!-- Flash: Alert -->
+		<% if alert.present? %>
+			<aside class="alert alert-info">
+				<%= alert %>
+			</aside>
+		<% end %>
+
 		<%= yield %>
+
 	</body>
 </html>
