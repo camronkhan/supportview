@@ -1,5 +1,6 @@
 class AddEmailConstraintToUsers < ActiveRecord::Migration[5.0]
   # Add check constraint on users to require '@motorolasolutions' email address
+  # Note: '~*' is how Postgres does regex matching
   def up
   	execute %{
   		ALTER TABLE users
