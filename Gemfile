@@ -43,3 +43,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise', '~> 4.2'
 gem 'bower-rails', '~> 0.10.0'
+gem 'faker', '~> 1.6', '>= 1.6.6'
