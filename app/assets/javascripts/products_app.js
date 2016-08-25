@@ -1,4 +1,9 @@
-var app = angular.module("products",[]);
+var app = angular.module(
+	"products",
+	[
+		"ngRoute"
+	]
+);
 
 app.controller("ProductSearchController", [
 			"$scope", "$http",
