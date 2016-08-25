@@ -37,6 +37,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails', '~> 3.5', '>= 3.5.1'
   gem 'poltergeist', '~> 1.10'
+  gem 'database_cleaner', '~> 1.5', '>= 1.5.3'
 end
 
 group :development do
