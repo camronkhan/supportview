@@ -1,0 +1,42 @@
+<header>
+	<h1 class="h2">Product Search</h1>
+</header>
+<section class="search-form">
+	<form>
+		<label for="search.keywords" class="sr-only">Keywords</label>
+		<input type="text" name="keywords" placeholder="Product Name" class="form-control input-lg" ng-change="search(keywords)" ng-model="keywords">
+	</form>
+</section>
+<aside class="sr-only loading-progress">
+	<span class="loading" ng-if="loading">Loading</span>
+	<span class="not-loading" ng-if="!loading">Done Loading</span>
+</aside>
+<section class="search-results" ng-if="products.length > 0">
+	<div class="row">
+		<div class="col-sm-4 search-results pre-scrollable" style="height:100vh;">
+			<header>
+				<h1>Results</h1>
+			</header>
+			<ol class="list-group">
+				<li class="list-group-item clearfix" ng-repeat="product in products" ng-click="selectProduct(product)">
+					<div class="row">
+						<div class="col-xs-4">
+							<img src="{{ product.image_url }}" alt="{{ product.name }}" class="img-responsive">
+						</div>
+						<div class="col-xs-8">
+							<h2>{{ product.name }}</h2>
+							<h3>{{ product.company_id }}</h3>
+							<h4>{{ product.source_id }}</h4>
+						</div>
+					</div>
+				</li>
+			</ol>
+		</div>
+		<div class="col-sm-8 item-information">
+			<header>
+				<h1>{{ product.name }}</h1>
+			</header>
+			<img src="{{ product.image_url }}" alt="">
+		</div>
+	</div>
+</section>

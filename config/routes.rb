@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
   	
-	root 'dashboard#index'
+	root 'search#index'
+
+	get 'search', to: 'search#index', as: 'search'
 
 	devise_for :users
 
-	resources :products, only: [:index]
-
-	get "angular_test", to: "angular_test#index"
+	namespace :api do
+		namespace :v1 do
+			resources :products, only: [:index, :show]
+		end
+	end
 end
