@@ -10,21 +10,7 @@
 		
 		<%= render partial: 'layouts/nav' %>
 		
-		<main class="container-fluid" style="margin-top:50px;">
-			<!-- Flash: Notice -->
-			<% if notice.present? %>
-				<aside class="alert alert-info">
-					<%= notice %>
-				</aside>
-			<% end %>
-
-			<!-- Flash: Alert -->
-			<% if alert.present? %>
-				<aside class="alert alert-danger">
-					<%= alert %>
-				</aside>
-			<% end %>
-		
+		<main class="container-fluid" style="margin-top:50px;">		
 			<%= yield %>
 		</main>
 
