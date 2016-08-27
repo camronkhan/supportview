@@ -31,6 +31,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise', '~> 4.2'
 gem 'bower-rails', '~> 0.10.0'
 gem 'angular-rails-templates', '~> 1.0'
+gem 'faker', '~> 1.6', '>= 1.6.6'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -38,7 +39,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5', '>= 3.5.1'
   gem 'poltergeist', '~> 1.10'
   gem 'database_cleaner', '~> 1.5', '>= 1.5.3'
-  gem 'faker', '~> 1.6', '>= 1.6.6'
 end
 
 group :development do
