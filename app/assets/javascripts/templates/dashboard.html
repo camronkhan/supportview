@@ -1,1 +1,122 @@
-<h1>{{ greeting }}, welcome to the dashboard</h1>
+<div class="container">
+	<h1>Dashboard</h1>
+	<div class="row">
+		<div class="col-md-6 col-lg-4">
+			<section class="panel search-form">
+				<div class="panel-body">
+					<h2>Product</h2>
+					<form>
+						<label for="search.productKeywords" class="sr-only">Keywords</label>
+						<input type="text" name="productKeywords" placeholder="Search for..." class="form-control input-lg" ng-model="productKeywords">
+						<br>
+						<button type="button" class="btn btn-primary pull-right" ng-click="searchProduct(productKeywords)">Search</button>
+					</form>
+				</div>
+			</section>
+		</div>
+		<div class="col-md-6 col-lg-4">
+			<section class="panel search-form">
+				<div class="panel-body">
+					<h2>Company</h2>
+					<form>
+						<label for="search.companyKeywords" class="sr-only">Keywords</label>
+						<input type="text" name="companyKeywords" placeholder="Search for..." class="form-control input-lg" ng-model="companyKeywords">
+						<br>
+						<button type="button" class="btn btn-primary pull-right" ng-click="searchCompany(companyKeywords)">Search</button>
+					</form>
+				</div>
+			</section>
+		</div>
+		<div class="col-md-6 col-lg-4">
+			<section class="panel search-form">
+				<div class="panel-body">
+					<h2>Agent</h2>
+					<form>
+						<label for="search.agentKeywords" class="sr-only">Keywords</label>
+						<input type="text" name="agentKeywords" placeholder="Search for..." class="form-control input-lg" ng-model="agentKeywords">
+						<br>
+						<button type="button" class="btn btn-primary pull-right" ng-click="searchAgent(agentKeywords)">Search</button>
+					</form>
+				</div>
+			</section>
+		</div>
+		<div class="col-md-6 col-lg-4">
+			<section class="panel search-form">
+				<div class="panel-body">
+					<h2>Portal</h2>
+					<form>
+						<label for="search.portalKeywords" class="sr-only">Keywords</label>
+						<input type="text" name="portalKeywords" placeholder="Search for..." class="form-control input-lg" ng-model="portalKeywords">
+						<br>
+						<button type="button" class="btn btn-primary pull-right" ng-click="searchPortal(portalKeywords)">Search</button>
+					</form>
+				</div>
+			</section>
+		</div>
+		<div class="col-md-6 col-lg-4">
+			<section class="panel search-form">
+				<div class="panel-body">
+					<h2>Facility</h2>
+					<form>
+						<label for="search.facilityKeywords" class="sr-only">Keywords</label>
+						<input type="text" name="facilityKeywords" placeholder="Search for..." class="form-control input-lg" ng-model="facilityKeywords">
+						<br>
+						<button type="button" class="btn btn-primary pull-right" ng-click="searchFacility(facilityKeywords)">Search</button>
+					</form>
+				</div>
+			</section>
+		</div>
+		<div class="col-md-6 col-lg-4">
+			<section class="panel search-form">
+				<div class="panel-body">
+					<h2>Global Item Master</h2>
+					<form>
+						<label for="search.gimKeywords" class="sr-only">Keywords</label>
+						<input type="text" name="gimKeywords" placeholder="Search for..." class="form-control input-lg" ng-model="gimKeywords">
+						<br>
+						<button type="button" class="btn btn-primary pull-right" ng-click="searchGlobalItemMaster(gimKeywords)">Search</button>
+					</form>
+				</div>
+			</section>
+		</div>
+		<div class="col-md-6 col-lg-4">
+			<section class="panel search-form">
+				<div class="panel-body">
+					<h2>Oracle Data Warehouse</h2>
+					<form>
+						<label for="search.oracleKeywords" class="sr-only">Keywords</label>
+						<input type="text" name="oracleKeywords" placeholder="Search for..." class="form-control input-lg" ng-model="oracleKeywords">
+						<br>
+						<button type="button" class="btn btn-primary pull-right" ng-click="searchOracleDataWarehouse(oracleKeywords)">Search</button>
+					</form>
+				</div>
+			</section>
+		</div>
+		<div class="col-md-6 col-lg-4">
+			<section class="panel search-form">
+				<div class="panel-body">
+					<h2>MSI.com</h2>
+					<form>
+						<label for="search.msiKeywords" class="sr-only">Keywords</label>
+						<input type="text" name="msiKeywords" placeholder="Search for..." class="form-control input-lg" ng-model="msiKeywords">
+						<br>
+						<button type="button" class="btn btn-primary pull-right" ng-click="searchMsiDotCom(msiKeywords)">Search</button>
+					</form>
+				</div>
+			</section>
+		</div>
+		<div class="col-md-6 col-lg-4">
+			<section class="panel search-form">
+				<div class="panel-body">
+					<h2>Google</h2>
+					<form>
+						<label for="search.googleKeywords" class="sr-only">Keywords</label>
+						<input type="text" name="googleKeywords" placeholder="Search for..." class="form-control input-lg" ng-model="googleKeywords">
+						<br>
+						<button type="button" class="btn btn-primary pull-right" ng-click="searchGoogle(googleKeywords)">Search</button>
+					</form>
+				</div>
+			</section>
+		</div>
+	</div>	
+</div>

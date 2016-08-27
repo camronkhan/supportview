@@ -1,6 +1,48 @@
 var app = angular.module("search", ["ngRoute", "templates"]);
 
-// Product Service
+// Routes
+app.config(["$routeProvider", function($routeProvider) {
+
+	$routeProvider
+		.when("/", {
+			controller: "DashboardController",
+			templateUrl: "dashboard.html"
+		})
+		.when("/product", {
+			controller: "ProductController",
+			templateUrl: "product.html"
+		})
+		.when("/company", {
+			controller: "CompanyController",
+			templateUrl: "company.html"
+		})
+		.when("/agent", {
+			controller: "AgentController",
+			templateUrl: "agent.html"
+		})
+		.when("/portal", {
+			controller: "PortalController",
+			templateUrl: "portal.html"
+		})
+		.when("/facility", {
+			controller: "FacilityController",
+			templateUrl: "facility.html"
+		})
+		.otherwise({
+			redirectTo: "/"
+		});
+}]);
+
+// Param Service: Pass params to another route
+app.factory("paramService", ["$location", function($location) {
+	return {
+		search: function(item, keywords) {
+			$location.path("/" + item).search({ "keywords": keywords });
+		}
+	}
+}]);
+
+// Product Service: Get products from data source
 app.factory("productService", ["$http", function($http) {
 	
 	// Implementation
@@ -40,47 +82,44 @@ app.factory("productService", ["$http", function($http) {
 	}
 }]);
 
-// Routes
-app.config(["$routeProvider", function($routeProvider) {
-
-	$routeProvider
-		.when("/", {
-			controller: "DashboardController",
-			templateUrl: "dashboard.html"
-		})
-		.when("/product", {
-			controller: "ProductController",
-			templateUrl: "product.html"
-		})
-		.when("/company", {
-			controller: "CompanyController",
-			templateUrl: "company.html"
-		})
-		.when("/agent", {
-			controller: "AgentController",
-			templateUrl: "agent.html"
-		})
-		.when("/portal", {
-			controller: "PortalController",
-			templateUrl: "portal.html"
-		})
-		.when("/facility", {
-			controller: "FacilityController",
-			templateUrl: "facility.html"
-		})
-		.otherwise({
-			redirectTo: "/"
-		});
-}]);
-
 // Dashboard Controller
-app.controller("DashboardController", ["$scope", function($scope) {
+app.controller("DashboardController", ["$scope", "paramService", function($scope, paramService) {
 	
-	$scope.greeting = "hello world";
+	$scope.searchProduct = function(productKeywords) {
+		paramService.search("product", productKeywords);
+	}
+
+	$scope.searchCompany = function(companyKeywords) {
+		paramService.search("company", companyKeywords);
+	}
+
+	$scope.searchAgent = function(agentKeywords) {
+		paramService.search("agent", agentKeywords);
+	}
+
+	$scope.searchPortal = function(portalKeywords) {
+		paramService.search("portal", portalKeywords);
+	}
+
+	$scope.searchGlobalItemMaster = function(gimKeywords) {
+		window.location.href = 'http://shamu.comm.mot.com/cgi-bin/gim_screens/gimqry002?PartNo=' + gimKeywords;
+	}
+
+	$scope.searchOracleDataWarehouse = function(oracleKeywords) {
+		window.location.href = 'http://rpsd.comm.mot.com/oracle_reports/bin/inv_display.asp?tb_material_nb=' + oracleKeywords;
+	}
+
+	$scope.searchMsiDotCom = function(msiKeywords) {
+		window.location.href = 'http://www.motorolasolutions.com/en_us/search.html?q=' + msiKeywords;
+	}
+
+	$scope.searchGoogle = function(googleKeywords) {
+		window.location.href = 'https://www.google.com/?gws_rd=ssl#safe=active&q=' + googleKeywords;
+	}
 }]);
 
 // Product Controller
-app.controller("ProductController", ["$scope", "productService", function($scope, productService) {
+app.controller("ProductController", ["$scope", "$location", "productService", function($scope, $location, productService) {
 
 	// Store list of products from JSON service
 	$scope.products = [];
@@ -148,4 +187,12 @@ app.controller("ProductController", ["$scope", "productService", function($scope
 		};
 		$scope.loadList(keywords);
 	}
+
+	// On initizlize, run search if query params are present
+	this.$onInit = function() {
+		if ($location.search().keywords) {
+			$scope.search($location.search().keywords);
+		}
+	}
+	this.$onInit();
 }]);
