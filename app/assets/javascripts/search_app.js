@@ -1,4 +1,4 @@
-var app = angular.module("search", ["ngRoute", "templates"]);
+var app = angular.module("search", ["ngRoute", "ngAnimate", "templates", "ui.bootstrap"]);
 
 // Routes
 app.config(["$routeProvider", function($routeProvider) {

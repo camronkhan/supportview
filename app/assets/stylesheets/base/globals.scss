@@ -1,3 +1,29 @@
 body {
-	
+	margin: 0 !important;
+	height: 100% !important;
+	overflow: hidden !important;
+
+	.master {
+		height: 100vh !important;
+		padding: 0 !important;
+	    overflow-y: scroll !important;
+	}
+
+	.detail {
+		height: 100vh !important;
+	    overflow-y: scroll !important;
+	    background-color: #FFFFFF;
+	}
+
+	.detail-view {
+		margin: 30px 15px !important;
+	}
+
+	.detail-title {
+		margin: 0px 15px 30px 15px !important;
+	}
+
+	.search-bar {
+		margin: 30px 15px !important;
+	}
 }
