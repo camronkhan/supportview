@@ -1,0 +1,2 @@
+class PortalAssignment < ApplicationRecord
+end

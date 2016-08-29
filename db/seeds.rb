@@ -1,7 +1,7 @@
 @num_companies = 200
 @num_sources = 10
 @num_products = 2000
-@num_model_numbers = 10000
+@num_model_numbers = 8000
 @num_agents = 100
 @num_portals = 10
 @num_facilities = 10
@@ -29,15 +29,15 @@ end
 	)
 end
 
-@num_model_numbers do |i|
+@num_model_numbers.times do |i|
 	ModelNumber.create!(
-		model: Faker::Vehicle.vin,
+		model: "#{Faker::Internet.password}".upcase,
 		description: Faker::Lorem.sentence,
 		product_id: rand(1..@num_products)
 	)
 end
 
-@num_agents do |i|
+@num_agents.times do |i|
 	Agent.create!(
 		skill: Faker::Superhero.power,
 		team: "#{Faker::Superhero.name} #{Faker::Company.suffix}",
@@ -48,7 +48,7 @@ end
 	)
 end
 
-@num_portals do |i|
+@num_portals.times do |i|
 	Portal.create!(
 		name: "Motorola Solutions #{Faker::App.name}",
 		website_url: Faker::Internet.url("motorolasolutions.com"),
@@ -56,9 +56,9 @@ end
 	)
 end
 
-@num_facilities do |i|
+@num_facilities.times do |i|
 	Facility.create!(
-		name: Faker::,
+		name: "Motorola Solution #{Faker::Company.name} Facility",
 		phone: Faker::PhoneNumber.phone_number,
 		address1: Faker::Address.street_address,
 		address2: "Suite #{Faker::Address.building_number}",
@@ -67,4 +67,46 @@ end
 		zip_code: Faker::Address.zip_code,
 		country: Faker::Address.country
 	)
+end
+
+Request.create!([
+	{ request: "Presale" },
+	{ request: "Order" },
+	{ request: "Return" },
+	{ request: "Replacement" },
+	{ request: "Repair" },
+	{ request: "Technical Support" }
+])
+
+@num_products.times do |i|
+	rand(0..3).times do |j|
+		AgentAssignment.create!(
+			condition: "If #{Faker::Lorem.sentence}.downcase",
+			request_id: rand(1..Request.count),
+			product_id: rand(1..@num_products),
+			agent_id: rand(1..@num_agents)
+		)
+	end
+end
+
+@num_products.times do |i|
+	rand(0..3).times do |j|
+		PortalAssignment.create!(
+			condition: "If #{Faker::Lorem.sentence}.downcase",
+			request_id: rand(1..Request.count),
+			product_id: rand(1..@num_products),
+			portal_id: rand(1..@num_portals)
+		)
+	end
+end
+
+@num_products.times do |i|
+	rand(0..3).times do |j|
+		FacilityAssignment.create!(
+			condition: "If #{Faker::Lorem.sentence}.downcase",
+			request_id: rand(1..Request.count),
+			product_id: rand(1..@num_products),
+			facility_id: rand(1..@num_facilities)
+		)
+	end
 end

@@ -1,0 +1,2 @@
+class AgentAssignment < ApplicationRecord
+end

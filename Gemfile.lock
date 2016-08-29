@@ -108,6 +108,10 @@ GEM
       pkg-config (~> 1.1.7)
     orm_adapter (0.5.0)
     pg (0.18.4-x86-mingw32)
+    pg_search (1.0.5)
+      activerecord (>= 3.1)
+      activesupport (>= 3.1)
+      arel
     pkg-config (1.1.7)
     poltergeist (1.10.0)
       capybara (~> 2.1)
@@ -211,6 +215,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   pg (~> 0.18)
+  pg_search (~> 1.0, >= 1.0.5)
   poltergeist (~> 1.10)
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)

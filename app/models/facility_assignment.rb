@@ -1,0 +1,2 @@
+class FacilityAssignment < ApplicationRecord
+end
